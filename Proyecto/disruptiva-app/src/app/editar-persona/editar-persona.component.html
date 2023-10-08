@@ -1,0 +1,31 @@
+<h2>Editar Persona</h2>
+
+<!-- Agregar un mensaje de error -->
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<!-- Formulario para ingresar el ID -->
+<form [formGroup]="idForm" (ngSubmit)="cargarPersona()">
+  <mat-form-field>
+    <input matInput formControlName="id" placeholder="ID">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Cargar Persona</button>
+</form>
+
+<!-- Formulario para editar los datos de la persona -->
+<form [formGroup]="personaForm" (ngSubmit)="editarPersona()" *ngIf="persona">
+  <mat-form-field>
+    <input matInput formControlName="nombre" placeholder="Nombre" [value]="persona.nombre">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="apellido" placeholder="Apellido" [value]="persona.apellido">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="fecha_nacimiento" placeholder="Fecha de Nacimiento" [value]="persona.fecha_nacimiento">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Guardar Cambios</button>
+</form>

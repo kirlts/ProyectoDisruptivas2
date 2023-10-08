@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Agregar Persona</h2>
+  <form [formGroup]="miFormulario" (ngSubmit)="agregarPersona()">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" placeholder="Nombre">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="apellido" placeholder="Apellido">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput formControlName="fecha_nacimiento" type="date" placeholder="Fecha de Nacimiento" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Agregar Persona</button>
+  </form>
+</div>

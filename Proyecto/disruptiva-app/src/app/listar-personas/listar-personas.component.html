@@ -1,0 +1,29 @@
+<h2>Listado de Personas</h2>
+
+<table mat-table [dataSource]="personas">
+  <!-- Columnas de la tabla -->
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let persona">{{ persona.id }}</td> <!-- Muestra el ID -->
+  </ng-container>
+
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let persona">{{ persona.nombre }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="apellido">
+    <th mat-header-cell *matHeaderCellDef>Apellido</th>
+    <td mat-cell *matCellDef="let persona">{{ persona.apellido }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="fecha_nacimiento">
+    <th mat-header-cell *matHeaderCellDef>Fecha de Nacimiento</th>
+    <td mat-cell *matCellDef="let persona">{{ persona.fecha_nacimiento }}</td>
+  </ng-container>
+
+  <!-- Definir las columnas de la tabla -->
+  <tr mat-header-row *matHeaderRowDef="['id','nombre', 'apellido', 'fecha_nacimiento']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id','nombre', 'apellido', 'fecha_nacimiento']"></tr>
+</table>

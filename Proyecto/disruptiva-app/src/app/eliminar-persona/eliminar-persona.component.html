@@ -1,0 +1,22 @@
+<h2>Eliminar Persona</h2>
+
+<!-- Formulario para ingresar el ID -->
+<form [formGroup]="personaForm" (ngSubmit)="cargarPersona()">
+  <mat-form-field>
+    <input matInput formControlName="id" placeholder="Ingrese el ID">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Cargar Persona</button>
+</form>
+
+<div *ngIf="persona">
+  <p>Nombre: {{ persona.nombre }}</p>
+  <p>Apellido: {{ persona.apellido }}</p>
+  <p>Fecha de Nacimiento: {{ persona.fecha_nacimiento | date }}</p>
+
+  <!-- Mostrar el mensaje de confirmación -->
+  <div *ngIf="confirmacionVisible" class="confirmar-mensaje">
+    <p>¿Estás seguro de que deseas eliminar esta persona?</p>
+    <button mat-button color="warn" (click)="confirmarEliminar()">Sí</button>
+    <button mat-button (click)="cancelar()">Cancelar</button>
+  </div>
+</div>
